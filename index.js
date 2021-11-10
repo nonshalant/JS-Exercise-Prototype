@@ -60,10 +60,6 @@ Person.prototype.toString = function(){
 }
 
 
-
-
-
-
 /*
   TASK 2
     - Write a Car constructor that initializes `model` and `milesPerGallon` from arguments.
@@ -78,8 +74,20 @@ Person.prototype.toString = function(){
         + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
 */
 
-function Car() {
-  
+function Car(model, milesPerGallon) {
+  this.model = model;
+  this.milesPerGallon = milesPerGallon;
+  this.tank = 0;
+  this.odometer = 0;
+}
+
+
+Car.prototype.fill = function (gallons){
+  this.tank = this.tank + gallons;
+}
+
+Car.prototype.drive = function (distance){
+  this.odometer = this.odometer + distance;
 }
 
 
@@ -91,17 +99,17 @@ function Car() {
         + Should return a string "Playing with x", x being the favorite toy.
 */
 function Baby() {
- 
+
 }
 
 
 /* 
   TASK 4
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1. When used in a method, it refers to the owner object.
+  2. When its alone this refers to the window.
+  3. In a function this refers to the global object.
+  4. Methods like call(), and apply() can refer this to any object.
 */
 
 
